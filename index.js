@@ -24,16 +24,7 @@ bot.on('start', function() {
 });
 
 
-var makeMention = function(userId) {
-    return '<@' + userId + '>';
-};
- 
-var isDirect = function(userId, messageText) {
-    var userTag = makeMention(userId);
-    return messageText &&
-           messageText.length >= userTag.length &&
-           messageText.substr(0, userTag.length) === userTag;
-};
+
 
 // Check Topaz infastucture
 var options = {
@@ -65,6 +56,17 @@ testPort(8081, 'ed.psu.edu', function(err){
 });
 
 
+var makeMention = function(userId) {
+    return '<@' + userId + '>';
+};
+ 
+var isDirect = function(userId, messageText) {
+    var userTag = makeMention(userId);
+    return messageText &&
+           messageText.length >= userTag.length &&
+           messageText.substr(0, userTag.length) === userTag;
+};
+
 /**
  * @param {object} data
  */
@@ -74,7 +76,7 @@ bot.on('message', function(message) {
     switch(message.type) {
         case 'message':
 
-            
+            console.log(isDirect(bot.self.id, message.text));
             
             if (isDirect(bot.self.id, message.text)) {
                 console.log(message.text);
