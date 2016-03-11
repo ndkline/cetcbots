@@ -24,6 +24,16 @@ bot.on('start', function() {
 });
 
 
+var makeMention = function(userId) {
+    return '<@' + userId + '>';
+};
+ 
+var isDirect = function(userId, messageText) {
+    var userTag = makeMention(userId);
+    return messageText &&
+           messageText.length >= userTag.length &&
+           messageText.substr(0, userTag.length) === userTag;
+};
 
 // Check Topaz infastucture
 var options = {
@@ -63,7 +73,12 @@ bot.on('message', function(data) {
 
     switch(data.type) {
         case 'message':
-            console.log(data);
+            var channel = slack.getChannelGroupOrDMByID(message.channel);
+            var user = slack.getUserByID(message.user);
+         
+            if (message.type === 'message' && isDirect(slack.self.id, message.text)) {
+                console.log(channel.name + ':' + user.name + ':' + message.text);
+            }
             break;
         case 'hello':
 
