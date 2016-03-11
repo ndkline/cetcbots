@@ -75,10 +75,11 @@ bot.on('message', function(message) {
         case 'message':
 
             
-         
-            if (message.type === 'message' && isDirect(bot.self.id, message.text)) {
+            
+            if (isDirect(bot.self.id, message.text)) {
                 console.log(message.text);
             }else{
+                console.log(bot.self.id);
                 console.log(message);
             }
             break;
