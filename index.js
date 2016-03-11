@@ -73,10 +73,10 @@ bot.on('message', function(data) {
 
     switch(data.type) {
         case 'message':
-            var channel = slack.getChannelGroupOrDMByID(message.channel);
-            var user = slack.getUserByID(message.user);
+            var channel = bot.getChannelGroupOrDMByID(message.channel);
+            var user = bot.getUserByID(message.user);
          
-            if (message.type === 'message' && isDirect(slack.self.id, message.text)) {
+            if (message.type === 'message' && isDirect(bot.self.id, message.text)) {
                 console.log(channel.name + ':' + user.name + ':' + message.text);
             }
             break;
