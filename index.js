@@ -68,12 +68,12 @@ testPort(8081, 'ed.psu.edu', function(err){
 /**
  * @param {object} data
  */
-bot.on('message', function(data) {
+bot.on('message', function(message) {
     // all ingoing events https://api.slack.com/rtm 
 
-    switch(data.type) {
+    switch(message.type) {
         case 'message':
-            var message = data.message;
+
             var channel = bot.getChannelGroupOrDMByID(message.channel);
             var user = bot.getUserByID(message.user);
          
@@ -94,7 +94,7 @@ bot.on('message', function(data) {
             // User changed AFK status
             break;
         default:
-            console.log('Unlogged Data Type: ' + data.type);
+            console.log('Unlogged Message Type: ' + message.type);
     }
 
 });
