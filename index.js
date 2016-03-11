@@ -78,7 +78,9 @@ bot.on('message', function(message) {
             var user = bot.getUserByID(message.user);
          
             if (message.type === 'message' && isDirect(bot.self.id, message.text)) {
-                console.log(channel.name + ':' + user.name + ':' + message.text);
+                console.log(message.text);
+            }else{
+                console.log(message);
             }
             break;
         case 'hello':
