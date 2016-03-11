@@ -73,6 +73,7 @@ bot.on('message', function(data) {
 
     switch(data.type) {
         case 'message':
+            var message = data.message;
             var channel = bot.getChannelGroupOrDMByID(message.channel);
             var user = bot.getUserByID(message.user);
          
