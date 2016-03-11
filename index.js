@@ -74,8 +74,7 @@ bot.on('message', function(message) {
     switch(message.type) {
         case 'message':
 
-            var channel = bot.getChannelGroupOrDMByID(message.channel);
-            var user = bot.getUserByID(message.user);
+            
          
             if (message.type === 'message' && isDirect(bot.self.id, message.text)) {
                 console.log(message.text);
