@@ -15,10 +15,10 @@ function testPort(host, port) {
     };
 
     http.get({ host: host, port: port }, function(res) {
-        if (message.statusCode == 200) {
+        if (res.statusCode == 200) {
             console.log("Status \u2705 | " + host + ":" + port);
         }else{
-            console.log("Status Code: "+message.statusCode)
+            console.log("Status Code: "+res.statusCode)
         }
 
     }).on("error", function(e) {
