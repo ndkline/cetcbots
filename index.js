@@ -84,7 +84,7 @@ bot.on('message', function(message) {
         case 'message':
 
             console.log('MSG |'+message.text)
-            if(messageText.indexOf(makeMention(bot.self.id))){
+            if(message.text.indexOf(makeMention(bot.self.id))){
                 console.log("Is Mentioned")
 
                 if (isDirect(bot.self.id, message.text)) {
