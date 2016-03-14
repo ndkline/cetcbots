@@ -42,34 +42,24 @@ bot.on('start', function() {
 
 function testPort_cb(status, message){
     console.log("Status: "+status);
-    console.log("Message: "+message);
+    console.log(message);
 }
 
-function testPort(port, host, cb) {
-    // console.log(host+":"+port);
+function testPort(host, port, cb) {
+    var options = {
+        host: host,
+        port: port
+    };
+
     http.get({ host: host, port: port }, function(res) {
         cb("success", res); 
     }).on("error", function(e) {
         cb("failure", e);
     });
-    
-  //   var options = {
-  //       host: host,
-  //       port: port
-  //   };
-
-  //   http.get(options, function(res) {
-  // if (res.statusCode == 200) {
-  //   console.log("Status \u2705 | College of Education");
-  //   cb("success", res)
-  // }
-  //   }).on('error', function(e) {
-  //     console.log("status \u10060 | College of Education" + e.message);
-  //   });
 
 }
 
-testPort(80, 'ed.psu.edu', testPort_cb);
+testPort('ed.psu.edu', 80, testPort_cb);
 
 
 var makeMention = function(userId) {
