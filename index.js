@@ -48,12 +48,9 @@ function testPort_cb(status, message){
 function testPort(port, host, cb) {
     // console.log(host+":"+port);
     http.get({ host: host, port: port }, function(res) {
-
-        // cb("success", res); 
-        console.log(res);
+        cb("success", res); 
     }).on("error", function(e) {
-        // cb("failure", e);
-        console.log(e);
+        cb("failure", e);
     });
     
   //   var options = {
