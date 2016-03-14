@@ -83,12 +83,12 @@ bot.on('message', function(message) {
     switch(message.type) {
         case 'message':
 
-            
+            console.log('MSG |'+message.text)
             if (isDirect(bot.self.id, message.text)) {
-                console.log(message.text);
+                // console.log(message.text);
             }else{
-                console.log(bot.self.id);
-                console.log(message);
+                // console.log(bot.self.id);
+                // console.log(message);
             }
             break;
         case 'hello':
