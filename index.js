@@ -83,8 +83,7 @@ bot.on('message', function(message) {
     switch(message.type) {
         case 'message':
 
-            console.log('MSG: '+message.text)
-
+            console.log(message.text.indexOf(makeMention(bot.self.id)));
 
             if(message.text.indexOf(makeMention(bot.self.id))==-1){
                 console.log("Is Mentioned")
