@@ -65,10 +65,6 @@ var isDirect = function(userId, messageText) {
     // todo: returning false, should be true
     var userTag = makeMention(userId);
 
-    console.log('UID: '+userId);
-    console.log('MSG: '+messageText);
-
-
     return messageText &&
            messageText.length >= userTag.length &&
            messageText.substr(0, userTag.length) === userTag;
@@ -83,8 +79,9 @@ bot.on('message', function(message) {
     switch(message.type) {
         case 'message':
 
-            console.log('MSG |'+message.text)
-            if(message.text.indexOf(makeMention(bot.self.id))){
+            console.log('MSG: '+message.text)
+
+            if(message.text.indexOf(makeMention(bot.self.id))==-1){
                 console.log("Is Mentioned")
 
                 if (isDirect(bot.self.id, message.text)) {
