@@ -40,6 +40,11 @@ http.get(options, function(res) {
       console.log("status \u10060 | College of Education" + e.message);
     });
 
+function testPort_cb(status, message){
+    console.log("Status: "+status);
+    console.log("Message: "+message);
+}
+
 function testPort(port, host, cb) {
   http.get({ host: host, port: port }, function(res) {
     cb("success", res); 
@@ -48,7 +53,7 @@ function testPort(port, host, cb) {
   });
 }
 
-testPort(8081, 'ed.psu.edu', callback);
+testPort(8081, 'ed.psu.edu', callback});
 
 
 var makeMention = function(userId) {
