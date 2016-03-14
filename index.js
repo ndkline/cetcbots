@@ -27,18 +27,18 @@ bot.on('start', function() {
 
 
 // Check Topaz infastucture
-var options = {
-  host: 'ed.psu.edu',
-  port: 80
-};
+// var options = {
+//   host: 'ed.psu.edu',
+//   port: 80
+// };
 
-http.get(options, function(res) {
-  if (res.statusCode == 200) {
-    console.log("Status \u2705 | College of Education");
-  }
-    }).on('error', function(e) {
-      console.log("status \u10060 | College of Education" + e.message);
-    });
+// http.get(options, function(res) {
+//   if (res.statusCode == 200) {
+//     console.log("Status \u2705 | College of Education");
+//   }
+//     }).on('error', function(e) {
+//       console.log("status \u10060 | College of Education" + e.message);
+//     });
 
 function testPort_cb(status, message){
     console.log("Status: "+status);
