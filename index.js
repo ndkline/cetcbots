@@ -64,6 +64,7 @@ function testPort(port, host, cb) {
     http.get(options, function(res) {
   if (res.statusCode == 200) {
     console.log("Status \u2705 | College of Education");
+    cb("success", res)
   }
     }).on('error', function(e) {
       console.log("status \u10060 | College of Education" + e.message);
