@@ -67,7 +67,7 @@ var isDirect = function(userId, messageText) {
 
     console.log('TEXT: '+messageText);
     console.log(messageText.length+" >= "+userTag.length)
-    console.log(messageText.substr(0, userTag.length)+' === 'userTag);
+    console.log(messageText.substr(0, userTag.length)+' === '+userTag);
 
     return messageText &&
            messageText.length >= userTag.length &&
