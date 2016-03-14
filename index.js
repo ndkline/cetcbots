@@ -53,7 +53,7 @@ function testPort(port, host, cb) {
   });
 }
 
-testPort(8081, 'ed.psu.edu', callback});
+testPort(8081, 'ed.psu.edu', callback);
 
 
 var makeMention = function(userId) {
