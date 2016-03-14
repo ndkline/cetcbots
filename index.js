@@ -46,11 +46,12 @@ function testPort_cb(status, message){
 }
 
 function testPort(port, host, cb) {
-  http.get({ host: host, port: port }, function(res) {
-    cb("success", res); 
-  }).on("error", function(e) {
-    cb("failure", e);
-  });
+    console.log("testPort Hit");
+    http.get({ host: host, port: port }, function(res) {
+        cb("success", res); 
+    }).on("error", function(e) {
+        cb("failure", e);
+    });
 }
 
 testPort(8081, 'ed.psu.edu', testPort_cb);
