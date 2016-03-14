@@ -55,10 +55,11 @@ function testPort(port, host, cb) {
     //     // cb("failure", e);
     //     console.log(e);
     // });
-var options = {
-  host: 'ed.psu.edu',
-  port: 80
-};
+    
+    var options = {
+        host: host,
+        port: port
+    };
 
     http.get(options, function(res) {
   if (res.statusCode == 200) {
@@ -70,7 +71,7 @@ var options = {
 
 }
 
-testPort(8081, 'ed.psu.edu', testPort_cb);
+testPort(80, 'ed.psu.edu', testPort_cb);
 
 
 var makeMention = function(userId) {
