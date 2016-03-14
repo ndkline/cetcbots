@@ -29,19 +29,19 @@ function testPort_cb(status, message){
     console.log("Status: "+status);
     console.log(message);
 
-    switch status{
-        case 'success':
-            if (message.statusCode == 200) {
-                console.log("Status \u2705 | College of Education");
-            }
-            break;
-        case 'error':
-            console.log(message);
-            break
-        default:
-            console.log("Something went wrong -- testPort_cb")
+    // switch status{
+    //     case 'success':
+    //         if (message.statusCode == 200) {
+    //             console.log("Status \u2705 | College of Education");
+    //         }
+    //         break;
+    //     case 'error':
+    //         console.log(message);
+    //         break
+    //     default:
+    //         console.log("Something went wrong -- testPort_cb")
 
-    }
+    // }
 }
 
 function testPort(host, port, cb) {
