@@ -46,6 +46,7 @@ bot.on('start', function() {
     };
     
     testPort('ed.psu.edu', 80);
+    testPort('respect.educ.psu.edu', 80);
     // define channel, where bot exist. You can adjust it there https://my.slack.com/services  
     // bot.postMessageToChannel('programming', 'meow!', params);
     
