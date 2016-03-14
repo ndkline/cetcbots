@@ -45,6 +45,7 @@ bot.on('start', function() {
         as_user: 'Reginald'
     };
     
+    testPort('ed.psu.edu', 80);
     // define channel, where bot exist. You can adjust it there https://my.slack.com/services  
     // bot.postMessageToChannel('programming', 'meow!', params);
     
@@ -59,7 +60,7 @@ bot.on('start', function() {
 
 
 
-testPort('ed.psu.edu', 80);
+
 
 
 /**
