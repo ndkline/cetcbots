@@ -49,8 +49,10 @@ function testPort(port, host, cb) {
     console.log("testPort Hit");
     http.get({ host: host, port: port }, function(res) {
         cb("success", res); 
+        console.log('success');
     }).on("error", function(e) {
         cb("failure", e);
+        console.log('failure');
     });
 }
 
