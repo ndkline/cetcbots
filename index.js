@@ -49,7 +49,7 @@ bot.on('start', function() {
         as_user: 'Reginald'
     };
     
-    testPort('ed.psu.edu', 80);
+    testPort('https://ed.psu.edu', 80);
     testPort('ed.psu.edu', 80, '/news/2015-jan-march-news/Morgan-award');
     testPort('respect.educ.psu.edu', 80);
     // define channel, where bot exist. You can adjust it there https://my.slack.com/services  
