@@ -8,7 +8,9 @@ var bot = new SlackBot({
 });
 
 
-function testPort(host, port = 80, path = '/') {
+function testPort(host, port, path) {
+    port = port || 80; 
+    path = path || '/';
     var options = {
         host: host,
         port: port,
