@@ -41,19 +41,14 @@ http.get(options, function(res) {
     });
 
 function testPort(port, host, cb) {
-  http.get({
-    host: host, 
-    port: port 
-  }, function(res) {
+  http.get({ host: host, port: port }, function(res) {
     cb("success", res); 
   }).on("error", function(e) {
     cb("failure", e);
   });
 }
 
-testPort(8081, 'ed.psu.edu', function(err){
-    console.log('error');
-});
+testPort(8081, 'ed.psu.edu', callback});
 
 
 var makeMention = function(userId) {
@@ -83,17 +78,14 @@ bot.on('message', function(message) {
     switch(message.type) {
         case 'message':
 
-            console.log(message.text.indexOf(makeMention(bot.self.id)));
 
             if(!(message.text.indexOf(makeMention(bot.self.id))==-1)){
-                console.log("Is Mentioned")
+                // Mentinoed
 
                 if (isDirect(bot.self.id, message.text)) {
-                    console.log("Is Direct");
+                    // Directly Mentioned
                 }
 
-            }else{
-                console.log("No Mention");
             }
             break;
         case 'hello':
