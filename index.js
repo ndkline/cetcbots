@@ -84,11 +84,15 @@ bot.on('message', function(message) {
         case 'message':
 
             console.log('MSG |'+message.text)
-            if (isDirect(bot.self.id, message.text)) {
-                // console.log(message.text);
+            if(messageText.indexOf(makeMention(bot.self.id))){
+                console.log("Is Mentioned")
+
+                if (isDirect(bot.self.id, message.text)) {
+                    console.log("Is Direct");
+                }
+
             }else{
-                // console.log(bot.self.id);
-                // console.log(message);
+                console.log("No Mention");
             }
             break;
         case 'hello':
