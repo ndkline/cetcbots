@@ -16,13 +16,14 @@ function testPort(host, port) {
 
     http.get({ host: host, port: port }, function(res) {
         if (res.statusCode == 200) {
-            console.log("Status \u2705  | " + host + ":" + port);
+            console.log("\u2705  | " + host + ":" + port);
         }else{
-            console.log("Status Code: "+res.statusCode)
+            console.log("\u274C  "+res.statusCode)
         }
 
     }).on("error", function(e) {
-        console.log("Status \u274C | " + e);
+        console.log("Status \u274C \u274C \u274C");
+        console.log(e);
     });
 
 }
