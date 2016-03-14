@@ -46,15 +46,28 @@ function testPort_cb(status, message){
 }
 
 function testPort(port, host, cb) {
-    console.log(host+":"+port);
-    http.get({ host: host, port: port }, function(res) {
+    // console.log(host+":"+port);
+    // http.get({ host: host, port: port }, function(res) {
 
-        // cb("success", res); 
-        console.log(res);
-    }).on("error", function(e) {
-        // cb("failure", e);
-        console.log(e);
+    //     // cb("success", res); 
+    //     console.log(res);
+    // }).on("error", function(e) {
+    //     // cb("failure", e);
+    //     console.log(e);
+    // });
+var options = {
+  host: 'ed.psu.edu',
+  port: 80
+};
+
+    http.get(options, function(res) {
+  if (res.statusCode == 200) {
+    console.log("Status \u2705 | College of Education");
+  }
+    }).on('error', function(e) {
+      console.log("status \u10060 | College of Education" + e.message);
     });
+
 }
 
 testPort(8081, 'ed.psu.edu', testPort_cb);
