@@ -25,24 +25,23 @@ bot.on('start', function() {
 
 
 
-
-// Check Topaz infastucture
-// var options = {
-//   host: 'ed.psu.edu',
-//   port: 80
-// };
-
-// http.get(options, function(res) {
-//   if (res.statusCode == 200) {
-//     console.log("Status \u2705 | College of Education");
-//   }
-//     }).on('error', function(e) {
-//       console.log("status \u10060 | College of Education" + e.message);
-//     });
-
 function testPort_cb(status, message){
     console.log("Status: "+status);
     console.log(message);
+
+    switch status{
+        case 'success':
+            if (message.statusCode == 200) {
+                console.log("Status \u2705 | College of Education");
+            }
+            break;
+        case 'error':
+            console.log(message);
+            break
+        default:
+            console.log("Something went wrong -- testPort_cb")
+
+    }
 }
 
 function testPort(host, port, cb) {
@@ -54,7 +53,7 @@ function testPort(host, port, cb) {
     http.get({ host: host, port: port }, function(res) {
         cb("success", res); 
     }).on("error", function(e) {
-        cb("failure", e);
+        cb("error", e);
     });
 
 }
@@ -70,10 +69,9 @@ var isDirect = function(userId, messageText) {
 
     // todo: returning false, should be true
     var userTag = makeMention(userId);
-
-    console.log('TEXT: '+messageText);
-    console.log(messageText.length+" >= "+userTag.length)
-    console.log(messageText.substr(0, userTag.length)+' === '+userTag);
+    console log(messageText &&
+           messageText.length >= userTag.length &&
+           messageText.substr(0, userTag.length) === userTag);
 
     return messageText &&
            messageText.length >= userTag.length &&
