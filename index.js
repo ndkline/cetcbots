@@ -6,6 +6,38 @@ var bot = new SlackBot({
     token: 'xoxb-25929351749-V6A99pkTikG2lAfViYVyHOOP', // Add a bot https://my.slack.com/services/new/bot and put the token  
     name: 'Reginald'
 });
+
+
+function testPort(host, port) {
+    var options = {
+        host: host,
+        port: port
+    };
+
+    http.get({ host: host, port: port }, function(res) {
+        if (message.statusCode == 200) {
+            console.log("Status \u2705 | " + host + ":" + port);
+        }else{
+            console.log("Status Code: "+message.statusCode)
+        }
+
+    }).on("error", function(e) {
+        console.log("Status \u274C | " + e);
+    });
+
+}
+
+var makeMention = function(userId) {
+    return '<@' + userId + '>';
+};
+ 
+var isDirect = function(userId, messageText) {
+    var userTag = makeMention(userId);
+    return messageText &&
+           messageText.length >= userTag.length &&
+           messageText.substr(0, userTag.length) === userTag;
+};
+
  
 bot.on('start', function() {
     // more information about additional params https://api.slack.com/methods/chat.postMessage 
@@ -25,56 +57,10 @@ bot.on('start', function() {
 
 
 
-function testPort_cb(status, message){
-    console.log("Status: "+status);
-    console.log(message);
-
-    // switch status{
-    //     case 'success':
-    //         if (message.statusCode == 200) {
-    //             console.log("Status \u2705 | College of Education");
-    //         }
-    //         break;
-    //     case 'error':
-    //         console.log(message);
-    //         break
-    //     default:
-    //         console.log("Something went wrong -- testPort_cb")
-
-    // }
-}
-
-function testPort(host, port, cb) {
-    var options = {
-        host: host,
-        port: port
-    };
-
-    http.get({ host: host, port: port }, function(res) {
-        cb("success", res); 
-    }).on("error", function(e) {
-        cb("error", e);
-    });
-
-}
-
-testPort('ed.psu.edu', 80, testPort_cb);
 
 
-var makeMention = function(userId) {
-    return '<@' + userId + '>';
-};
- 
-var isDirect = function(userId, messageText) {
+testPort('ed.psu.edu', 80);
 
-    // todo: returning false, should be true
-    var userTag = makeMention(userId);
-    console.log(messageText && messageText.length >= userTag.length && messageText.substr(0, userTag.length) === userTag);
-
-    return messageText &&
-           messageText.length >= userTag.length &&
-           messageText.substr(0, userTag.length) === userTag;
-};
 
 /**
  * @param {object} data
