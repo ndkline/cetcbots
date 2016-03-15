@@ -98,7 +98,7 @@ bot.on('message', function(message) {
                     console.log(message);
                     if (message.text.indexOf('ed.psu.edu') && message.text.indexOf('stutus') ) {
                         console.log(testPort('ed.psu.edu', 80));
-                        if(testPort('ed.psu.edu', 80)){
+                        if(testPort('ed.psu.edu', 80)===true){
                             reply = "\u2705  | " + 'ed.psu.edu' + ":" + 80 + '/';
                             console.log("reply: "+reply);
                         }else{
