@@ -76,6 +76,12 @@ bot.on('start', function() {
  * @param {object} data
  */
 bot.on('message', function(message) {
+    // more information about additional params https://api.slack.com/methods/chat.postMessage 
+    var params = {
+        as_user: 'Reginald'
+    };
+
+    
     // all ingoing events https://api.slack.com/rtm 
 
     var reply = null;
