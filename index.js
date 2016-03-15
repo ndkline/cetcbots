@@ -20,16 +20,16 @@ function testPort(host, port, path) {
     http.get({ host: host, port: port }, function(res) {
         if (res.statusCode == 200) {
             console.log("\u2705  | " + host + ":" + port + path);
-            return true;
+            return "\u2705  | " + host + ":" + port + path;
         }else{
             console.log("\u274C  "+res.statusCode)
-            return false;
+            return "\u274C  "+res.statusCode;
         }
 
     }).on("error", function(e) {
         console.log("Status \u274C \u274C \u274C");
         console.log(e);
-        return false;
+        return ("Status \u274C \u274C \u274C";
     });
 
 }
@@ -78,6 +78,8 @@ bot.on('start', function() {
 bot.on('message', function(message) {
     // all ingoing events https://api.slack.com/rtm 
 
+    var reply = null;
+
     switch(message.type) {
         case 'message':
 
@@ -89,7 +91,7 @@ bot.on('message', function(message) {
                     // Directly Mentioned
                     console.log(message);
                     if (message.text.indexOf('ed.psu.edu') && message.text.indexOf('stutus') ) {
-
+                        reply = testPort('ed.psu.edu', 80);
                     }
                 }
 
@@ -109,6 +111,11 @@ bot.on('message', function(message) {
             break;
         default:
             console.log('Unlogged Message Type: ' + message.type);
+    }
+
+    if (reply !== null) {
+        bot.postMessageToUser(message.user, reply, params); 
+        reply = null;
     }
 
 });
