@@ -29,7 +29,7 @@ function testPort(host, port, path) {
     }).on("error", function(e) {
         console.log("Status \u274C \u274C \u274C");
         console.log(e);
-        return ("Status \u274C \u274C \u274C";
+        return "Status \u274C \u274C \u274C";
     });
 
 }
