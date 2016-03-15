@@ -20,13 +20,16 @@ function testPort(host, port, path) {
     http.get({ host: host, port: port }, function(res) {
         if (res.statusCode == 200) {
             console.log("\u2705  | " + host + ":" + port + path);
+            return true;
         }else{
             console.log("\u274C  "+res.statusCode)
+            return false;
         }
 
     }).on("error", function(e) {
         console.log("Status \u274C \u274C \u274C");
         console.log(e);
+        return false;
     });
 
 }
@@ -49,7 +52,7 @@ bot.on('start', function() {
         as_user: 'Reginald'
     };
     
-    testPort('https://ed.psu.edu', 80);
+    testPort('ed.psu.edu', 80);
     testPort('ed.psu.edu', 80, '/news/2015-jan-march-news/Morgan-award');
     testPort('respect.educ.psu.edu', 80);
     // define channel, where bot exist. You can adjust it there https://my.slack.com/services  
@@ -84,6 +87,10 @@ bot.on('message', function(message) {
 
                 if (isDirect(bot.self.id, message.text)) {
                     // Directly Mentioned
+                    console.log(message.text);
+                    if (message.text.indexOf('ed.psu.edu') && message.text.indexOf('stutus') ) {
+
+                    }
                 }
 
             }
