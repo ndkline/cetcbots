@@ -87,7 +87,7 @@ bot.on('message', function(message) {
 
                 if (isDirect(bot.self.id, message.text)) {
                     // Directly Mentioned
-                    console.log(message.text);
+                    console.log(message);
                     if (message.text.indexOf('ed.psu.edu') && message.text.indexOf('stutus') ) {
 
                     }
