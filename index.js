@@ -19,16 +19,16 @@ function testPort(host, port, path) {
 
     http.get({ host: host, port: port }, function(res) {
         if (res.statusCode == 200) {
-            console.log("\u2705  | " + host + ":" + port + path);
+            // console.log("\u2705  | " + host + ":" + port + path);
             return "\u2705  | " + host + ":" + port + path;
         }else{
-            console.log("\u274C  "+res.statusCode)
+            // console.log("\u274C  "+res.statusCode)
             return "\u274C  "+res.statusCode;
         }
 
     }).on("error", function(e) {
-        console.log("Status \u274C \u274C \u274C");
-        console.log(e);
+        // console.log("Status \u274C \u274C \u274C");
+        // console.log(e);
         return "Status \u274C \u274C \u274C";
     });
 
@@ -92,6 +92,7 @@ bot.on('message', function(message) {
                     console.log(message);
                     if (message.text.indexOf('ed.psu.edu') && message.text.indexOf('stutus') ) {
                         reply = testPort('ed.psu.edu', 80);
+                        console.log(reply);
                     }
                 }
 
