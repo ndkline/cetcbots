@@ -19,10 +19,10 @@ function testPort(host, port, path) {
 
     http.get({ host: host, port: port }, function(res) {
         if (res.statusCode == 200) {
-            // console.log("\u2705  | " + host + ":" + port + path);
+            console.log("\u2705  | " + host + ":" + port + path);
             return true;
         }else{
-            // console.log("\u274C  "+res.statusCode)
+            console.log("\u274C  "+res.statusCode)
             return false;
         }
 
