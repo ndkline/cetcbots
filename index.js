@@ -3,7 +3,7 @@ http = require('http');
  
 // create a bot 
 var bot = new SlackBot({
-    token: 'xoxb-25929351749-V6A99pkTikG2lAfViYVyHOOP', // Add a bot https://my.slack.com/services/new/bot and put the token  
+    token: 'xXxXxXxXxXxXx', // Add a bot https://my.slack.com/services/new/bot and put the token  
     name: 'Reginald'
 });
 
